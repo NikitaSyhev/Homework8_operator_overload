@@ -27,7 +27,7 @@ namespace Homework8
         public string _name // свойства
         {
             get { return name; }
-            set { name = value; coin = myRandom(); honor = myRandom(); }
+            set { name = value; coin = myRandom(); honor = myRandom(); } // добавил homor = MyRandom();
         }
         private int coin;
 
@@ -40,7 +40,7 @@ namespace Homework8
         public int _honor
         {
             get { return honor; }
-            set { honor = value; }
+          set { honor = value; }
         }
 
         public static bool operator <(Gamers player1, Gamers player2) // перегрузка операторо
@@ -104,7 +104,10 @@ namespace Homework8
             Gamers gamer02 = new Gamers();
             gamer02._name = name02;
             Console.WriteLine(
-                "1-й игрок {0} имеет {2} монет, {4} доблести\n" +
+
+
+                //почему то у меня не генериурется доблесть рандомно, точнее герерируется но одинаковая
+                "1-й игрок {0} имеет {2} монет, {4} доблести\n" + // добавил вывод доблести
                 "2-й игрок {1} имеет {3} монет, {5} доблести",
                 gamer01._name, gamer02._name, gamer01._coin, gamer02._coin, gamer01._honor, gamer02._honor); ;
             if (gamer01 > gamer02)
