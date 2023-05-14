@@ -27,7 +27,7 @@ namespace Homework8
         public string _name // свойства
         {
             get { return name; }
-            set { name = value; coin = myRandom(); }
+            set { name = value; coin = myRandom(); honor = myRandom(); }
         }
         private int coin;
 
@@ -45,11 +45,41 @@ namespace Homework8
 
         public static bool operator <(Gamers player1, Gamers player2) // перегрузка операторо
         {
-            return player1._coin * player1._honor < player2._coin * player2._honor;
+            if (player1._coin == player2._coin)
+            {
+                return player1._honor < player2._honor;
+            }
+            else if (player1._honor == player2._honor)
+            {
+                return player1._coin < player2._coin;
+            }
+            else if (player1._coin < player2._coin)
+                return player1._honor > player2._honor;
+            else if (player1._coin > player2._coin)
+            {
+                return player1._honor < player2._honor;
+            }
+            else
+                return player1._coin * player1._honor < player2._coin * player2._honor;
         }
-        public static bool operator >(Gamers player1, Gamers player2)
+        public static bool operator >(Gamers player1, Gamers player2) // перегрузка операторо
         {
-            return player1._coin * player1._honor > player2._coin * player2._honor;
+            if (player1._coin == player2._coin)
+            {
+                return player1._honor > player2._honor;
+            }
+            else if (player1._honor == player2._honor)
+            {
+                return player1._coin > player2._coin;
+            }
+            else if (player1._coin < player2._coin)
+                return player1._honor < player2._honor;
+            else if (player1._coin > player2._coin)
+            {
+                return player1._honor > player2._honor;
+            }
+            else
+                return player1._coin * player1._honor > player2._coin * player2._honor;
         }
     }
     internal class Program
@@ -74,9 +104,9 @@ namespace Homework8
             Gamers gamer02 = new Gamers();
             gamer02._name = name02;
             Console.WriteLine(
-                "1-й игрок {0} имеет {2} монет\n" +
-                "2-й игрок {1} имеет {3} монет",
-                gamer01._name, gamer02._name, gamer01._coin, gamer02._coin); ;
+                "1-й игрок {0} имеет {2} монет, {4} доблести\n" +
+                "2-й игрок {1} имеет {3} монет, {5} доблести",
+                gamer01._name, gamer02._name, gamer01._coin, gamer02._coin, gamer01._honor, gamer02._honor); ;
             if (gamer01 > gamer02)
             {
                 Console.WriteLine("Игрок {0} успешней игрока {1}", gamer01._name, gamer02._name);
