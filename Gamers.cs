@@ -8,6 +8,7 @@ namespace Homework8
 {
     class Gamers
     {
+        
         static private int myRandom()   //метод рандомайзера
         {
             Random random = new Random();
@@ -19,15 +20,16 @@ namespace Homework8
         }
         public Gamers()  //конструктор
         {
-            name = "Gamer";
+            name = "Gamer_NoName";
             coin = 1;
             honor = 100;
+            luckiness = 10;
         }
         private string name;
         public string _name // свойства
         {
             get { return name; }
-            set { name = value; coin = myRandom(); honor = myRandom(); } // добавил homor = MyRandom();
+            set { name = value; coin = myRandom(); honor = myRandom(); luckiness = myRandom(); } // добавил homor = MyRandom(); luckiness = myRandom();
         }
         private int coin;
 
@@ -41,6 +43,12 @@ namespace Homework8
         {
             get { return honor; }
             set { honor = value; }
+        }
+        public int luckiness; //добавили параметр "везучесть"
+
+        public int _luckiness
+        {
+            get { return luckiness; }
         }
 
         public static bool operator <(Gamers player1, Gamers player2) // перегрузка операторо
@@ -81,5 +89,7 @@ namespace Homework8
             else
                 return player1._coin * player1._honor > player2._coin * player2._honor;
         }
+
+       
     }
 }
