@@ -21,21 +21,22 @@ namespace Homework8
         public Gamers()  //конструктор
         {
             name = "Gamer_NoName";
-            coin = 1;
-            honor = 100;
-            luckiness = 10;
+            coin =  myRandom();
+            honor = myRandom();
+            luckiness = myRandom();
         }
         private string name;
         public string _name // свойства
         {
             get { return name; }
-            set { name = value; coin = myRandom(); honor = myRandom(); luckiness = myRandom(); } // добавил homor = MyRandom(); luckiness = myRandom();
+            set { name = value; } // добавил homor = MyRandom(); luckiness = myRandom();
         }
         private int coin;
 
         public int _coin // свойство
         {
             get { return coin; }
+            set { coin = value; }
         }
         private int honor;// свойство
 
@@ -49,6 +50,7 @@ namespace Homework8
         public int _luckiness
         {
             get { return luckiness; }
+            set { luckiness = value; }
         }
 
         public static bool operator <(Gamers player1, Gamers player2) // перегрузка операторо
