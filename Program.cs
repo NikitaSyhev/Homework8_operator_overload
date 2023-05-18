@@ -11,28 +11,69 @@ namespace Homework8
     internal class Program
 
     {
-        public void createGamers(int _numberOfGamers)
+        public List<Gamers> createGamers(int _numberOfGamers)  // класс создания геймеров, который возвразает List, чтобы использовать в дальнейшем 
         {
             List<Gamers> gamers = new List<Gamers>(); // создали list для записи игроков
 
             if (_numberOfGamers > 0 && _numberOfGamers < 9)
             {
-                for (int i = 0; i < _numberOfGamers; i++)
+                for (int i = 1; i <= _numberOfGamers; i++)
                 {
                     Gamers gamer = new Gamers();
                     gamers.Add(gamer);
-                    // Console.WriteLine($"Мы создали игорока {gamer._name}.");
+
+                    return gamers;
 
                 };
-                foreach (Gamers gamer in gamers)
-                {
-                    Console.WriteLine(gamer._name);
-                }
-
             }
             else
 
                 Console.WriteLine("Мы можем создать максимум 8 игроков");
+            return gamers;
+        }
+
+
+        public List<Gamers> createTeams(List<Gamers> _teams)          //метод объединения в команды
+        {
+            List<Gamers> Team1 = new List<Gamers>();
+            List<Gamers> Team2 = new List<Gamers>();
+            int coinTeam1 = 0; int coinTeam2 = 0; int honorTeam1 = 0; int honorTeam2 = 0; int luckinessTeam1 = 0; int luckinessTeam2 = 0; //создали переменные для записи параметров команды
+            for (int i = 0; i < _teams.Count; i++)
+            {
+                if (i % 2 == 0)
+                {
+                    Team1.Add(_teams[i]);
+                    foreach (Gamers gamer in Team1)
+                    {
+                        int tempCoin, tempHonour, tempLuckiness;
+                        tempCoin = gamer._coin;
+                        coinTeam1 = +tempCoin;
+                        tempHonour = gamer._honor;
+                        honorTeam1 += tempHonour;
+                        tempLuckiness = gamer._luckiness;
+                        luckinessTeam1 = +tempLuckiness;
+                    }
+                    return Team1;
+                }
+                else
+                {
+                    Team2.Add(_teams[i]);
+                    foreach (Gamers gamer in Team2)
+                    {
+                        int tempCoin, tempHonour, tempLuckiness;
+                        tempCoin = gamer._coin;
+                        coinTeam2 = +tempCoin;
+                        tempHonour = gamer._honor;
+                        honorTeam2 += tempHonour;
+                        tempLuckiness = gamer._luckiness;
+                        luckinessTeam2 = +tempLuckiness;
+                    }
+                    return Team2;
+                }
+
+            }
+
+            return Team1;
         }
 
         static void Main(string[] args)
@@ -59,7 +100,7 @@ namespace Homework8
             Console.WriteLine(
 
 
-                //почему то у меня не генериурется доблесть рандомно, точнее герерируется но одинаковая
+
                 "1-й игрок {0} имеет {2} монет, {4} доблести\n" + // добавил вывод доблести
                 "2-й игрок {1} имеет {3} монет, {5} доблести",
                 gamer01._name, gamer02._name, gamer01._coin, gamer02._coin, gamer01._honor, gamer02._honor); ;
@@ -77,28 +118,34 @@ namespace Homework8
                 {
                     Console.WriteLine("Игрок {1} равен игроку {0}", gamer01._name, gamer02._name);
                 }
-                Console.WriteLine("\n\n");
-                Console.WriteLine("Дополнительные задания: создать игроков и команду.\n\n");
+                Console.WriteLine("\n");
+                Console.WriteLine("Дополнительные задания: создать игроков и команду.\n");
+
                 Console.WriteLine("Введите количество игроков: ");
                 string input = Console.ReadLine(); ;
                 int numberOfPlayers = Convert.ToInt32(input); // считали строку и преобразовали ее в int
-                if (numberOfPlayers > 0 && numberOfPlayers < 9)
-                {
-                    Console.WriteLine($"Сейчас мы создадим {numberOfPlayers} игроков");
-                    Program p = new Program();
-                    p.createGamers(numberOfPlayers);
+           
+                    {
+                        if (numberOfPlayers > 0 && numberOfPlayers < 9)
+                        {
+                            Console.WriteLine($"Сейчас мы создадим {numberOfPlayers} игроков");
+                            Program program = new Program();
+
+                            List<Gamers> gamers = new List<Gamers>(program.createGamers(numberOfPlayers));
+                            foreach (Gamers gamer in gamers)
+                            {
+                                Console.WriteLine($"Мы создали {gamer._name}");
+                            }
+                        }
+                       else
+                        {
+                            Console.WriteLine("Мы можем создать максимум 8 игроков.\n Введите число еще раз.");
+                        }
+                    Console.ReadLine();
                 }
-                else
-                {
-                    Console.WriteLine("Мы можем создать максимум 8 игроков");
-                }
-
-
-
-                Console.ReadLine();
-
             }
-        }
-    }
 
+        }
+
+    }
 }

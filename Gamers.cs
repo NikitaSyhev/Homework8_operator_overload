@@ -29,7 +29,7 @@ namespace Homework8
         public string _name // свойства
         {
             get { return name; }
-            set { name = value; } // добавил homor = MyRandom(); luckiness = myRandom();
+            set { name = value; } 
         }
         private int coin;
 
@@ -38,9 +38,9 @@ namespace Homework8
             get { return coin; }
             set { coin = value; }
         }
-        private int honor;// свойство
+        private int honor;
 
-        public int _honor
+        public int _honor// свойство
         {
             get { return honor; }
             set { honor = value; }
