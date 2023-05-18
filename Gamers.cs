@@ -17,6 +17,7 @@ namespace Homework8
             Number *= Number;
             int _myRandom = 1 + random.Next(Number) % 100;
             return _myRandom;
+
         }
         public Gamers()  //конструктор
         {
