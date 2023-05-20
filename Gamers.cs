@@ -19,13 +19,36 @@ namespace Homework8
             return _myRandom;
 
         }
+
+        static private int myRandomNumberTeams()   //метод рандомайзера для номера команды ( от 0 до 1 )
+        {
+            Random random = new Random();
+            var currentTime = DateTime.Now.Millisecond;
+            int Number = currentTime;
+            Number *= Number;
+            int _myRandom = 1 + random.Next(Number) % 1;
+            return _myRandom;
+
+        }
         public Gamers()  //конструктор
         {
             name = "Gamer_NoName";
             coin =  myRandom();
             honor = myRandom();
             luckiness = myRandom();
+            teamNumber = myRandomNumberTeams(); // по умолчанию назначаем номер либо 0 либо 1 и там распределяем по командам
+            // сюда добавялем параметр, который относит человека к команде, а затем в методе CreateGamers мы просто рандомно разобьем по командам
         }
+        //
+
+        private int teamNumber;
+
+        public int _teamNumber // свойства
+        {
+            get { return teamNumber; }
+            set { teamNumber = value; }
+        }
+
         private string name;
         public string _name // свойства
         {

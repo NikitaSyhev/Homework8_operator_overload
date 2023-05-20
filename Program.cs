@@ -32,50 +32,6 @@ namespace Homework8
             return gamers;
         }
 
-
-        public List<Gamers> createTeams(List<Gamers> _teams)          //метод объединения в команды
-        {
-            List<Gamers> Team1 = new List<Gamers>();
-            List<Gamers> Team2 = new List<Gamers>();
-            int coinTeam1 = 0; int coinTeam2 = 0; int honorTeam1 = 0; int honorTeam2 = 0; int luckinessTeam1 = 0; int luckinessTeam2 = 0; //создали переменные для записи параметров команды
-            for (int i = 0; i < _teams.Count; i++)
-            {
-                if (i % 2 == 0)
-                {
-                    Team1.Add(_teams[i]);
-                    foreach (Gamers gamer in Team1)
-                    {
-                        int tempCoin, tempHonour, tempLuckiness;
-                        tempCoin = gamer._coin;
-                        coinTeam1 = +tempCoin;
-                        tempHonour = gamer._honor;
-                        honorTeam1 += tempHonour;
-                        tempLuckiness = gamer._luckiness;
-                        luckinessTeam1 = +tempLuckiness;
-                    }
-                    return Team1;
-                }
-                else
-                {
-                    Team2.Add(_teams[i]);
-                    foreach (Gamers gamer in Team2)
-                    {
-                        int tempCoin, tempHonour, tempLuckiness;
-                        tempCoin = gamer._coin;
-                        coinTeam2 = +tempCoin;
-                        tempHonour = gamer._honor;
-                        honorTeam2 += tempHonour;
-                        tempLuckiness = gamer._luckiness;
-                        luckinessTeam2 = +tempLuckiness;
-                    }
-                    return Team2;
-                }
-
-            }
-
-            return Team1;
-        }
-
         static void Main(string[] args)
         {
 
@@ -141,6 +97,11 @@ namespace Homework8
                         {
                             Console.WriteLine("Мы можем создать максимум 8 игроков.\n Введите число еще раз.");
                         }
+
+                   
+
+
+
                     Console.ReadLine();
                 }
             }
