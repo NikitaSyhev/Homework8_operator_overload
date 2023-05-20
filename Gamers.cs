@@ -26,7 +26,7 @@ namespace Homework8
             var currentTime = DateTime.Now.Millisecond;
             int Number = currentTime;
             Number *= Number;
-            int _myRandom = 1 + random.Next(Number) % 1;
+            int _myRandom = 0 + random.Next(Number) % 1;  
             return _myRandom;
 
         }
@@ -34,7 +34,7 @@ namespace Homework8
         {
             name = "Gamer_NoName";
             coin =  myRandom();
-            honor = myRandom();
+            honor = 100;
             luckiness = myRandom();
             teamNumber = myRandomNumberTeams(); // по умолчанию назначаем номер либо 0 либо 1 и там распределяем по командам
             // сюда добавялем параметр, который относит человека к команде, а затем в методе CreateGamers мы просто рандомно разобьем по командам

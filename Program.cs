@@ -4,6 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+// Комментарий по заданию
+// сделал все методы, 
+// сделал дополнительный класс с командами, но не понимаю как команды в мейн вывести =(
+
 
 namespace Homework8
 
@@ -11,20 +15,20 @@ namespace Homework8
     internal class Program
 
     {
+      
         public List<Gamers> createGamers(int _numberOfGamers)  // класс создания геймеров, который возвразает List, чтобы использовать в дальнейшем 
         {
             List<Gamers> gamers = new List<Gamers>(); // создали list для записи игроков
-
+            
             if (_numberOfGamers > 0 && _numberOfGamers < 9)
             {
+               
                 for (int i = 1; i <= _numberOfGamers; i++)
                 {
                     Gamers gamer = new Gamers();
-                    gamers.Add(gamer);
-
-                    return gamers;
-
+                    gamers.Add(gamer); 
                 };
+                return gamers;
             }
             else
 
@@ -80,14 +84,13 @@ namespace Homework8
                 Console.WriteLine("Введите количество игроков: ");
                 string input = Console.ReadLine(); ;
                 int numberOfPlayers = Convert.ToInt32(input); // считали строку и преобразовали ее в int
-           
-                    {
+                Program program = new Program();
+                List<Gamers> gamers = new List<Gamers>(program.createGamers(numberOfPlayers)); // сюда записали игроков
+
+                {
                         if (numberOfPlayers > 0 && numberOfPlayers < 9)
                         {
                             Console.WriteLine($"Сейчас мы создадим {numberOfPlayers} игроков");
-                            Program program = new Program();
-
-                            List<Gamers> gamers = new List<Gamers>(program.createGamers(numberOfPlayers));
                             foreach (Gamers gamer in gamers)
                             {
                                 Console.WriteLine($"Мы создали {gamer._name}");
@@ -98,7 +101,11 @@ namespace Homework8
                             Console.WriteLine("Мы можем создать максимум 8 игроков.\n Введите число еще раз.");
                         }
 
-                   
+
+                    Teams team1 = new Teams(); // создали объекты класса команд
+                    Teams team2 = new Teams();
+                    team1.createTeams(gamers);
+                    team1.buttleTeams();
 
 
 

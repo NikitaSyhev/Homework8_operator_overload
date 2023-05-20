@@ -6,9 +6,6 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Homework8", "Homework8.csproj", "{05F07E11-B354-4596-807B-339AEFF51757}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{FFA5862A-A601-46D7-B85E-9CBC8413BEC9}"
-	ProjectSection(SolutionItems) = preProject
-		Teams.cs = Teams.cs
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
